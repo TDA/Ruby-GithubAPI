@@ -23,6 +23,24 @@ File.open('/Users/schandramouli/PycharmProjects/GithubAPI/languages_data_sorted.
       languages[lang] += loc
     end
   end
-
+  # this sorts by value, yay! minus for descending
+  languages = Hash[languages.sort_by { |key, value| -value}]
   puts languages
+  File.write('./language_usage_data.json', JSON.pretty_unparse(languages))
+
+  # now to find frequency of usage of a language, ala how
+  # many projects with that language.
+  frequency = Hash.new(0)
+  language_data.each do |key, value|
+    value = JSON.parse(value)
+    # puts value
+    value.each do |lang, loc|
+      frequency[lang] += 1
+    end
+  end
+  # this sorts by value, yay! minus for descending
+  frequency = Hash[frequency.sort_by { |key, value| -value}]
+  puts frequency
+  File.write('./language_frequency_data.json', JSON.pretty_unparse(frequency))
+
 end
