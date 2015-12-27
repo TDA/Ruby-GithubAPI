@@ -39,7 +39,9 @@ File.open('/Users/schandramouli/PycharmProjects/GithubAPI/languages_data_sorted.
     end
   end
   # this sorts by value, yay! minus for descending
-  frequency = Hash[frequency.sort_by { |key, value| -value}]
+  # frequency = Hash[frequency.sort_by { |key, value| key}.reverse]
+  # does the same as -value, but more verbose
+  frequency = Hash[frequency.sort_by { |key, value| value}.reverse]
   puts frequency
   File.write('./language_frequency_data.json', JSON.pretty_unparse(frequency))
 

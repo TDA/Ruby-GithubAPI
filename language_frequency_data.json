@@ -9,10 +9,10 @@
   "Shell": 5,
   "C": 3,
   "Makefile": 3,
-  "C++": 2,
   "CMake": 2,
+  "C++": 2,
   "ApacheConf": 1,
-  "Perl": 1,
   "Batchfile": 1,
+  "Perl": 1,
   "Swift": 1
 }
